@@ -14,12 +14,15 @@
     <div class="description">
       <img :src="image" />
       <p v-if="tickets > 15">On sale now</p>
-      <p v-else-if="tickets <= 15 && tickets > 0">There are {{ tickets === 0 ? "no" : tickets }} tickets left</p>
+      <p v-else-if="tickets <= 15 && tickets > 1">There are {{ tickets }} tickets left</p>
+      <p v-else-if="tickets === 1">There is 1 ticket left</p>
       <p v-else>Sorry. We're sold out</p>
     </div>
     <ul>
       <li v-for="(value, key) in details" :key="detail"><strong>{{ key }}:</strong> {{ value }}</li>
     </ul>
+    <button v-if="tickets > 0" @click="updateCart">Add ticket</button>
+    <div clas="cart">Tickets ({{cart}})</div>
   </div>
 <script src="main.js"></script>
 <script>
