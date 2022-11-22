@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://unpkg.com/vue@3.2.45/dist/vue.global.js"></script>
+  <title>Learning Vue</title>
+</head>
+<body>
+  <div class="app" id="app">
+    <h1>{{ title }}</h1>
+    <div class="description">
+      <img :src="image" />
+      <p v-if="tickets > 15">On sale now</p>
+      <p v-else-if="tickets <= 15 && tickets > 0">There are {{ tickets === 0 ? "no" : tickets }} tickets left</p>
+      <p v-else>Sorry. We're sold out</p>
+    </div>
+    <ul>
+      <li v-for="(value, key) in details" :key="detail"><strong>{{ key }}:</strong> {{ value }}</li>
+    </ul>
+  </div>
+<script src="main.js"></script>
+<script>
+  const mountedApp = app.mount("#app");
+</script>
+</body>
+</html>
