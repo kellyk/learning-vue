@@ -1,6 +1,8 @@
 const app = Vue.createApp({
   data() {
     return {
+      message: '',
+      soldOutClass: 'soldOut',
       title: "Comedy events",
       tickets: 10,
       cart: 0,

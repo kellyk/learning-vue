@@ -27,12 +27,18 @@
             {{ type.name }}
           </li>
         </ul>
-        <button v-if="!soldOut" @click="updateCart">Add ticket</button>
-        <div clas="cart">Tickets ({{cart}})</div>
+        <input v-model="message" placeholder="edit me" />
+        <p>The input box says {{message}}.</p>
+        <div class="addTickets">
+          <button v-if="!soldOut" @click="updateCart">Add ticket</button>
+          <div clas="cart">Tickets ({{cart}})</div>
+        </div>
     </div>
-    <div class="aside">
+    <aside class="aside">
+      <!-- <img :class="{ 'soldOut': soldOut }" :src="image" width="199" height="199"/> -->
+      <!-- <img :class="[soldOut && soldOutClass]" :src="image" width="199" height="199"/> -->
       <img :class="{ 'soldOut': soldOut }" :src="image" width="199" height="199"/>
-    </div>
+    </aside>
   </div>
 <script src="main.js"></script>
 <script>
