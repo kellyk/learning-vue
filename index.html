@@ -11,18 +11,28 @@
 <body>
   <div class="app" id="app">
     <h1>{{ title }}</h1>
-    <div class="description">
-      <img :src="image" />
-      <p v-if="tickets > 15">On sale now</p>
-      <p v-else-if="tickets <= 15 && tickets > 1">There are {{ tickets }} tickets left</p>
-      <p v-else-if="tickets === 1">There is 1 ticket left</p>
-      <p v-else>Sorry. We're sold out</p>
+    <div class="main">
+      <div class="showDetails">
+        <ul>
+          <li v-for="(value, key) in details" :key="detail"><strong>{{ key }}:</strong> {{ value }}</li>
+        </ul>
+        <div class="ticketsRemaining">
+          <p v-if="tickets > 15">On sale now</p>
+          <p v-else-if="tickets <= 15 && tickets > 1">There are {{ tickets }} tickets left</p>
+          <p v-else-if="tickets === 1">There is 1 ticket left</p>
+          <p v-else>Sorry. We're sold out</p>
+        </div>
+        <ul class="ticketTypes">
+          <li class="ticketSelector" @mouseover="updateImage(type.id)" v-for="type in ticketTypes">
+            {{ type.name }}
+          </li>
+        </ul>
+        <button v-if="!soldOut" @click="updateCart">Add ticket</button>
+        <div clas="cart">Tickets ({{cart}})</div>
     </div>
-    <ul>
-      <li v-for="(value, key) in details" :key="detail"><strong>{{ key }}:</strong> {{ value }}</li>
-    </ul>
-    <button v-if="tickets > 0" @click="updateCart">Add ticket</button>
-    <div clas="cart">Tickets ({{cart}})</div>
+    <div class="aside">
+      <img :class="{ 'soldOut': soldOut }" :src="image" width="199" height="199"/>
+    </div>
   </div>
 <script src="main.js"></script>
 <script>

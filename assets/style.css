@@ -2,6 +2,11 @@ body {
   color: #222;
 }
 
-.app {
-  display: 'flex';
+.main {
+  display: flex;
+  gap: 2em;
+}
+
+.soldOut {
+  opacity: 0.3;
 }
