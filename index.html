@@ -22,16 +22,22 @@
           <p v-else-if="tickets === 1">There is 1 ticket left</p>
           <p v-else>Sorry. We're sold out</p>
         </div>
-        <ul class="ticketTypes">
-          <li class="ticketSelector" @mouseover="updateImage(type.id)" v-for="type in ticketTypes">
-            {{ type.name }}
-          </li>
-        </ul>
-        <input v-model="message" placeholder="edit me" />
-        <p>The input box says {{message}}.</p>
+        <h3>Ticket Types</h3>
         <div class="addTickets">
           <button v-if="!soldOut" @click="updateCart">Add ticket</button>
           <div clas="cart">Tickets ({{cart}})</div>
+        </div>
+        <div class="ticketTiers">
+          <ticket-details
+            v-for="ticketType in ticketTypes"
+            :name="ticketType.name"
+            :description="ticketType.description"
+            :tickets="ticketType.tickets"
+          ></ticket-details>
+        </div>
+        <div class="name">
+          <input v-model="name" placeholder="name" />
+          <p>Hello {{name}}</p>
         </div>
     </div>
     <aside class="aside">
@@ -41,6 +47,7 @@
     </aside>
   </div>
 <script src="main.js"></script>
+<script src="components/TicketDetails.js"></script>
 <script>
   const mountedApp = app.mount("#app");
 </script>

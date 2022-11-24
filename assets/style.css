@@ -3,6 +3,20 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+ul {
+  padding-left: 2em;
+}
+
+button, input {
+  line-height: 1.5em;
+  padding: 0.25em .5em;
+  background: white;
+  border-radius: 3px;
+  border-color: #ddd;
+  border-width: 1px;
+  border-style: solid;
+}
+
 .app {
   padding: 0 1em;
 }
@@ -12,7 +26,7 @@ body {
   gap: 2em;
 }
 
-.ticketTypes {
+.ticketTiers {
   display: flex;
   gap: 0.5em;
   justify-content: space-between;
@@ -22,19 +36,22 @@ body {
 .ticketSelector {
   list-style: none;
   width: 75px;
-  height: 50px;
   border-radius: 5px;
-  border: 1px solid #eee;
-  display: flex;
+  border: 1px solid #ddd;
   align-items: center;
   justify-content: center;
 }
 
 .addTickets {
   display: flex;
-  gap: 1em;
+  gap: 0.5em;
+  flex-direction: column
 }
 
 .soldOut {
   opacity: 0.3;
+}
+
+.name {
+  margin-top: 2em;
 }
