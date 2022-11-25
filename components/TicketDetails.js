@@ -3,10 +3,11 @@ app.component('ticket-details', {
     name: String,
     description: String,
     tickets: Number,
+    onHover: Boolean,
   },
   template: `
     <div>
-      <h4>{{ name }}</h4>
+      <h4 :hover="onHover">{{ name }}</h4>
       <div class="addTickets">
         <select class="ticketSelector" v-model="ticketsToBuy">
           <option value=0>0</option>
@@ -24,6 +25,7 @@ app.component('ticket-details', {
   },
   methods: {
     addTickets(num) {
+      this.$emit('buyTickets', this.ticketsToBuy, this.name);
       this.ticketsLeft -=num;
       this.ticketsToBuy = 0;
     }
